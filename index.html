@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kidnamedvasu Edits — Video Portfolio</title>
+  <meta name="description" content="Professional short-form video editor crafting scroll-stopping content." />
+
+  <!-- Google Fonts: Montserrat (display / headings) + Plus Jakarta Sans (body) + Space Mono (brutalist metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== CUSTOM CURSORS ========== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <!-- WATCH cursor — shows only on video hover -->
+  <div class="cursor-watch" id="cursorWatch">
+    <i class="fa-solid fa-play watch-icon"></i>
+    <span class="watch-label">WATCH</span>
+  </div>
+
+  <!-- ========== LOADER ========== -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-initials">PORTFOLIO</div>
+      <div class="loader-bar-wrap"><div class="loader-bar-fill" id="loaderFill"></div></div>
+      <div class="loader-status">INITIALIZING<span class="blink-dots">...</span></div>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="bracket">[</span>PORTFOLIO<span class="bracket">]</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero"              class="nav-link">Home</a></li>
+      <li><a href="#about"             class="nav-link">About</a></li>
+      <li><a href="#clientWorkSection" class="nav-link">Work</a></li>
+      <li><a href="#contact"           class="nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-nav-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Brutalist scroll progress loading line at navbar bottom border -->
+    <div class="nav-scroll-progress-track">
+      <div class="nav-scroll-progress" id="navScrollProgress"></div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero"              class="mob-link">Home</a></li>
+      <li><a href="#about"             class="mob-link">About</a></li>
+      <li><a href="#clientWorkSection" class="mob-link">Work</a></li>
+      <li><a href="#contact"           class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+
+    <!-- Brutalist Background Elements & Telemetry Signs -->
+    <div class="brutal-bg-sign bg-sign-top-left">[SYS // TIMELINE_01]</div>
+    <div class="brutal-bg-sign bg-sign-top-right">REC &#9679; 00:24:16:08 // 60FPS</div>
+    <div class="brutal-bg-sign bg-sign-bottom-left">ASPECT: 9:16 // RES: 1080x1920</div>
+    <div class="brutal-bg-sign bg-sign-bottom-right">CODEC: APPLE_PRORES_422HQ</div>
+    <div class="brutal-corner-cross bc-tl">+</div>
+    <div class="brutal-corner-cross bc-tr">+</div>
+    <div class="brutal-corner-cross bc-bl">+</div>
+    <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- Animated grid background -->
+    <div class="hero-grid"></div>
+
+    <!-- Floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- NLE Timeline overlay — playhead moves on scroll -->
+    <div class="nle-timeline" id="nleTimeline">
+      <div class="nle-header">
+        <div class="nle-header-left">
+          <span class="nle-label">V1 / MASTER</span>
+          <span class="nle-tc" id="nleTimecode">00:00:00:00</span>
+        </div>
+        <div class="nle-header-right">
+          <span class="nle-label">24 FPS</span>
+          <span class="nle-label sky">V2 / FOOTAGE</span>
+          <span class="nle-label">CUT · TRIM · REFRAME</span>
+        </div>
+      </div>
+      <div class="nle-ruler">
+        <div class="ruler-marks" id="rulerMarks"></div>
+        <div class="nle-playhead" id="nlePlayhead">
+          <div class="ph-line"></div>
+          <div class="ph-head"></div>
+        </div>
+      </div>
+      <div class="nle-tracks">
+        <!-- V1 -->
+        <div class="track">
+          <span class="track-id">V1</span>
+          <div class="track-clips">
+            <div class="clip c-sky"  style="left:0%;    width:18%">OPENING</div>
+            <div class="clip c-blue" style="left:19%;   width:12%">HOOK</div>
+            <div class="clip c-sky"  style="left:32%;   width:22%">BODY</div>
+            <div class="clip c-cyan" style="left:55%;   width:8%">TRANS</div>
+            <div class="clip c-blue" style="left:64%;   width:20%">CLIMAX</div>
+            <div class="clip c-sky"  style="left:85%;   width:14%">OUT</div>
+          </div>
+        </div>
+        <!-- V2 -->
+        <div class="track">
+          <span class="track-id">V2</span>
+          <div class="track-clips">
+            <div class="clip c-muted" style="left:8%;  width:10%">B-ROLL</div>
+            <div class="clip c-muted" style="left:40%; width:14%">B-ROLL</div>
+            <div class="clip c-muted" style="left:68%; width:9%">CARD</div>
+          </div>
+        </div>
+        <!-- A1 -->
+        <div class="track">
+          <span class="track-id">A1</span>
+          <div class="track-clips">
+            <div class="clip c-green" style="left:0%;  width:100%">MUSIC TRACK</div>
+          </div>
+        </div>
+        <!-- A2 -->
+        <div class="track">
+          <span class="track-id">A2</span>
+          <div class="track-clips">
+            <div class="clip c-teal" style="left:5%;  width:22%">VO</div>
+            <div class="clip c-teal" style="left:33%; width:18%">SFX</div>
+            <div class="clip c-teal" style="left:62%; width:12%">OUTRO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero text -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span> Available for Projects
+      </div>
+      <h1 class="hero-name">
+        <span class="name-top" data-text="KIDNAMEDVASU">KIDNAMEDVASU</span>
+        <span class="name-sub">EDITS</span>
+      </h1>
+      <p class="hero-tagline">
+        Crafting <em>cinematic short-form content</em> that stops the scroll.<br/>
+        Helping creators &amp; brands turn viewers into <em>engaged fans &amp; buyers.</em>
+      </p>
+      <div class="hero-btns">
+        <a href="#clientWorkSection" class="btn-primary"><span>View My Work</span><i class="fa fa-arrow-right"></i></a>
+      </div>
+      <!-- Stats: 12+ clients, 85%+ retention, 2 years experience -->
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="12">0</span><span class="stat-suf">+</span>
+          <span class="stat-lbl">Clients</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="85">0</span><span class="stat-suf">%+</span>
+          <span class="stat-lbl">Avg. Retention</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="2">0</span><span class="stat-suf">+</span>
+          <span class="stat-lbl">Years Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-line-anim"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- Brutalist Section Connector Strip -->
+  <div class="brutal-divider-strip">
+    <div class="strip-tag"><i class="fa-solid fa-crosshairs"></i> <span>TIMELINE_BUFFER // 100%</span></div>
+    <div class="brutal-cal-bar"></div>
+    <div class="strip-tag"><span>4K_UHD // 60FPS</span></div>
+    <div class="brutal-comb-lines"></div>
+    <div class="strip-tag">[REC &#9679; SYNC_LOCK]</div>
+  </div>
+
+  <!-- ========== MARQUEE STRIP ========== -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="marquee-row">
+        <span>INSTAGRAM REELS</span><span class="dot">✦</span>
+        <span>YOUTUBE SHORTS</span><span class="dot">✦</span>
+        <span>FAST PACED EDITS</span><span class="dot">✦</span>
+        <span>COLOR GRADING</span><span class="dot">✦</span>
+        <span>MOTION GRAPHICS</span><span class="dot">✦</span>
+        <span>BEAT SYNC</span><span class="dot">✦</span>
+        <span>UGC CONTENT</span><span class="dot">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span>INSTAGRAM REELS</span><span class="dot">✦</span>
+        <span>YOUTUBE SHORTS</span><span class="dot">✦</span>
+        <span>FAST PACED EDITS</span><span class="dot">✦</span>
+        <span>COLOR GRADING</span><span class="dot">✦</span>
+        <span>MOTION GRAPHICS</span><span class="dot">✦</span>
+        <span>BEAT SYNC</span><span class="dot">✦</span>
+        <span>UGC CONTENT</span><span class="dot">✦</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="brutal-watermark wm-left">ARCHIVE // 01</div>
+    <div class="brutal-corner-cross bc-tl">+</div>
+    <div class="brutal-corner-cross bc-tr">+</div>
+    <div class="brutal-corner-cross bc-bl">+</div>
+    <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- Brutalist Boarding Pass Decal (Image 8) -->
+    <div class="brutal-boarding-pass" style="top: 8%; right: 4%;">
+      <div class="bbp-header">
+        <span class="bbp-brand">VASU.EDIT</span>
+        <span class="bbp-tag">[ARCHIVE // BIO]</span>
+      </div>
+      <div class="bbp-accent-strip">
+        <span class="bbp-strip-text">CREATIVE SHORT-FORM NLE EDITOR</span>
+        <span class="bbp-code">KNV // 01</span>
+      </div>
+      <div class="bbp-meta">
+        <div class="bbp-meta-col">
+          <span class="bbp-label">EXPERIENCE</span>
+          <span class="bbp-val">2+ YEARS</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">CLIENTS</span>
+          <span class="bbp-val">12+ SERVED</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">RETENTION</span>
+          <span class="bbp-val">85%+ APV</span>
+        </div>
+      </div>
+      <div class="bbp-barcode-row">
+        <div class="bbp-bars"></div>
+        <span class="bbp-stamp">AVLB : 2026 // NLE_OK</span>
+      </div>
+    </div>
+
+    <!-- Brutalist LED & Battery Gauge (Image 6) -->
+    <div class="brutal-led-badge" style="bottom: 8%; right: 5%;">
+      <span class="blb-lcd">88</span>
+      <div class="blb-bars">
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg"></span>
+      </div>
+      <span class="blb-sub">PRORES // 60FPS</span>
+    </div>
+
+    <!-- Brutalist Optical Starburst & Window Stamp Decals -->
+    <div class="brutal-starburst" style="top: 50%; left: 2%; transform:translateY(-50%);"></div>
+
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Left: card -->
+        <div class="about-card-wrap reveal-left">
+          <div class="about-card">
+            <div class="card-glow-ring"></div>
+            <div class="card-avatar">
+              <div class="avatar-frame">
+                <img src="20261024_204211.jpg" alt="Vasu - Video Editor" class="avatar-pfp" id="avatarPfp" />
+              </div>
+            </div>
+            <div class="card-tools">
+              <span class="tool-tag">Premiere Pro</span>
+              <span class="tool-tag">After Effects</span>
+              <span class="tool-tag">DaVinci Resolve</span>
+            </div>
+            <div class="card-live">
+              <span class="live-dot"></span> Currently editing...
+            </div>
+            <div class="brutal-barcode">
+              <div class="barcode-lines"></div>
+              <span>KNV-2026-NLE</span>
+            </div>
+            <div class="brutal-spec-sticker">
+              <div class="bss-header">
+                <span>STATUS: ACTIVE</span>
+                <span>[2026 // NLE]</span>
+              </div>
+              <div class="bss-row">
+                <span>SPEC: 9:16 REELS</span>
+                <span>RETENTION: HIGH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: text -->
+        <div class="about-text reveal-right">
+          <div class="sec-label">About Me</div>
+          <h2 class="sec-title">
+            Turning <span class="grad-text">raw clips</span><br/>into scroll-stopping stories.
+          </h2>
+          <p class="about-para">
+            Hey! I'm a short-form video editor passionate about creating content that hooks viewers within the first second. I specialize in Instagram Reels and YouTube Shorts — the kind of content that gets shared, saved, and talked about.
+          </p>
+          <p class="about-para">
+            Every cut, every transition, every sound effect is intentional. I don't just edit videos, I engineer viewer experiences.
+          </p>
+
+          <!-- Skills -->
+          <div class="skills-list">
+            <div class="skill-chip">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Fast Turnaround</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-palette"></i>
+              <span>Color Grading</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-headphones"></i>
+              <span>Sound Design</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Motion Graphics</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Trend-Aware Cuts</span>
+            </div>
+            <div class="skill-chip">
+              <i class="fa-solid fa-film"></i>
+              <span>Short-Form Expert</span>
+            </div>
+          </div>
+
+          <a href="#clientWorkSection" class="btn-primary">
+            <span>See My Work</span><i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3D CUBE SECTION ========== -->
+  <section class="cube-section" id="cubeSection">
+    <div class="brutal-watermark wm-right">MATRIX // 3D</div>
+    <div class="brutal-corner-cross bc-tl">+</div>
+    <div class="brutal-corner-cross bc-tr">+</div>
+    <div class="brutal-corner-cross bc-bl">+</div>
+    <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- Brutalist Retro Window Decal (Image 7) -->
+    <div class="brutal-window-card" style="bottom: 8%; left: 3%;">
+      <div class="bwc-bar">
+        <div class="bwc-dots"><span></span><span></span><span></span></div>
+        <span class="bwc-title">STYLE_INSPECTOR.EXE</span>
+        <span class="bwc-res">[3D]</span>
+      </div>
+      <div class="bwc-body">
+        <div class="bwc-tree">
+          <div class="tree-line"><span>▼</span> /STYLES_ROSTER</div>
+          <div class="tree-line indent"><span>├─</span> [01] SIMPLE_REELS</div>
+          <div class="tree-line indent"><span>├─</span> [02] MOTION_GFX</div>
+          <div class="tree-line indent"><span>├─</span> [03] UGC_CONTENT</div>
+          <div class="tree-line indent"><span>├─</span> [04] 3D_CAMERA</div>
+          <div class="tree-line indent"><span>├─</span> [05] PERSONAL_PROJS</div>
+          <div class="tree-line indent"><span>└─</span> [06] SHORT_FORM</div>
+        </div>
+        <div class="bwc-footer">
+          <span class="bwc-pill">INTERACTIVE 3D MESH</span>
+          <span class="bwc-arrow">↖</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brutalist Ticket Stub Decal (Image 6) -->
+    <div class="brutal-ticket-tag" style="top: 12%; right: 4%;">
+      <span class="btt-notch left"></span>
+      <span class="btt-notch right"></span>
+      <div class="btt-header">№ 01 PASS</div>
+      <div class="btt-body">STYLE SELECTOR<br/>[CLICK TO OPEN]</div>
+    </div>
+
+    <!-- Brutalist Starburst & Isometric Cube Decals -->
+    <div class="brutal-starburst" style="top: 15%; left: 4%;"></div>
+    <div style="position:absolute; bottom: 8%; right: 6%; opacity: 0.22; pointer-events:none;">
+      <svg width="65" height="65" viewBox="0 0 100 100" fill="none" stroke="#38bdf8" stroke-width="2">
+        <polygon points="50,15 85,35 50,55 15,35" />
+        <polygon points="15,35 50,55 50,90 15,70" />
+        <polygon points="50,55 85,35 85,70 50,90" />
+      </svg>
+    </div>
+
+    <div class="container cube-layout">
+
+      <!-- Left text -->
+      <div class="cube-left reveal-left">
+        <div class="sec-label">Pick a Style</div>
+        <h2 class="cube-heading">Rotate the cube.<br/>Open a style.</h2>
+        <p class="cube-sub">Drag to spin, or click any face / category to view its curated video collection.</p>
+        <div class="cube-hint">
+          <span class="cube-hint-pulse"></span>
+          <span>DRAG TO ROTATE &bull; CLICK ANY FACE TO EXPLORE ↗</span>
+        </div>
+      </div>
+
+      <!-- Center: 3D cube -->
+      <div class="cube-stage" id="cubeStage">
+        <div class="cube-perspective">
+          <div class="cube-3d" id="cube3d">
+            <div class="face front"  data-face="0" data-category="simple"><span class="face-name">SIMPLE<br/>REELS</span><span class="face-cta">VIEW REELS ↗</span></div>
+            <div class="face back"   data-face="1" data-category="motion"><span class="face-name">MOTION<br/>GRAPHICS</span><span class="face-cta">VIEW REELS ↗</span></div>
+            <div class="face right"  data-face="2" data-category="ugc"><span class="face-name">UGC</span><span class="face-cta">VIEW REELS ↗</span></div>
+            <div class="face left"   data-face="3" data-category="3d"><span class="face-name">3D<br/>CAMERA</span><span class="face-cta">VIEW REELS ↗</span></div>
+            <div class="face top"    data-face="4" data-category="personal"><span class="face-name">PERSONAL<br/>PROJS</span><span class="face-cta">VIEW REELS ↗</span></div>
+            <div class="face bottom" data-face="5" data-category="shortform"><span class="face-name">SHORT<br/>FORM</span><span class="face-cta">VIEW REELS ↗</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: category list -->
+      <div class="cube-categories reveal-right">
+        <div class="cat-item active" data-target-face="0" data-category="simple">
+          <span class="cat-name">Simple Reels</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+        <div class="cat-item" data-target-face="1" data-category="motion">
+          <span class="cat-name">Motion Graphics</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+        <div class="cat-item" data-target-face="2" data-category="ugc">
+          <span class="cat-name">UGC</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+        <div class="cat-item" data-target-face="3" data-category="3d">
+          <span class="cat-name">3D Camera</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+        <div class="cat-item" data-target-face="4" data-category="personal">
+          <span class="cat-name">Personal Projs</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+        <div class="cat-item" data-target-face="5" data-category="shortform">
+          <span class="cat-name">Short-Form</span>
+          <span class="cat-action">View <i class="fa fa-arrow-right cat-arrow"></i></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Brutalist Section Connector Strip -->
+  <div class="brutal-divider-strip">
+    <div class="strip-tag"><i class="fa-solid fa-cube"></i> <span>STYLE_SELECTION // READY</span></div>
+    <div class="brutal-comb-lines"></div>
+    <div class="strip-tag"><span>[030% // SYSTEM_ACTIVE]</span></div>
+    <div class="brutal-cal-bar"></div>
+    <div class="strip-tag">[CLIENT_ARCHIVE // 9:16_STREAM]</div>
+  </div>
+
+  <!-- ========== CLIENT WORK — HORIZONTAL SCROLL REELS ========== -->
+  <section class="client-work-section" id="clientWorkSection">
+    <!-- Ambient side flank grids for focus -->
+    <div class="client-grid-flank client-grid-left"></div>
+    <div class="client-grid-flank client-grid-right"></div>
+
+    <!-- Brutalist technical signs -->
+    <div class="client-flank-sign c-sign-left">&#9679; CLIENT_ARCHIVE // 9:16</div>
+    <div class="client-flank-sign c-sign-right">RAW_RENDER_SEQ_009 // 4K &#9679;</div>
+
+    <!-- Brutalist Retro Window Decal (Image 7) -->
+    <div class="brutal-window-card" style="top: 1.5rem; left: 3rem;">
+      <div class="bwc-bar">
+        <div class="bwc-dots"><span></span><span></span><span></span></div>
+        <span class="bwc-title">CLIENT_PROJECTS.BIN</span>
+        <span class="bwc-res">[9:16]</span>
+      </div>
+      <div class="bwc-body">
+        <div class="bwc-tree">
+          <div class="tree-line"><span>▼</span> /COMMERCIALS</div>
+          <div class="tree-line indent"><span>├─</span> PODCAST_CUT.MP4</div>
+          <div class="tree-line indent"><span>├─</span> VIRAL_REEL.MP4</div>
+          <div class="tree-line indent"><span>└─</span> HIGH_RETENTION.MOV</div>
+        </div>
+        <div class="bwc-footer">
+          <span class="bwc-pill">60FPS &bull; BUFFER 100%</span>
+          <span class="bwc-arrow">↖</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brutalist Boarding Pass Decal (Image 8) -->
+    <div class="brutal-boarding-pass" style="top: 1.5rem; right: 3rem;">
+      <div class="bbp-header">
+        <span class="bbp-brand">KNV.CLIENTS</span>
+        <span class="bbp-tag">[VERIFIED // 2026]</span>
+      </div>
+      <div class="bbp-accent-strip">
+        <span class="bbp-strip-text">HIGH RETENTION SHORT-FORM PRODUCTION</span>
+        <span class="bbp-code">№ 09</span>
+      </div>
+      <div class="bbp-meta">
+        <div class="bbp-meta-col">
+          <span class="bbp-label">ASPECT</span>
+          <span class="bbp-val">9:16 UHD</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">AUDIO</span>
+          <span class="bbp-val">MASTERED</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">PLAYBACK</span>
+          <span class="bbp-val">SMOOTH</span>
+        </div>
+      </div>
+      <div class="bbp-barcode-row">
+        <div class="bbp-bars"></div>
+        <span class="bbp-stamp">FEED_ACTIVE // 02:51 AM</span>
+      </div>
+    </div>
+
+    <div class="client-work-header reveal-up">
+      <div class="sec-label">Client Showcase</div>
+      <h2 class="sec-title">Client <span class="grad-text">Work</span></h2>
+      <p class="sec-sub">Vertical reels crafted for creators and brands — scroll down to explore the gallery.</p>
+      <div class="client-audio-toggle-wrap">
+        <button class="btn-client-audio" id="btnClientAudio" aria-label="Toggle audio on client reels" type="button">
+          <i class="fa-solid fa-volume-xmark" id="clientAudioIcon"></i>
+          <span id="clientAudioLabel">SOUND: OFF [CLICK TO UNMUTE]</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sticky viewport container for seamless horizontal movement -->
+    <div class="client-scroll-pin" id="clientScrollPin">
+      <div class="client-track-container" id="clientTrackContainer">
+        <div class="client-reel-track" id="clientReelTrack">
+
+          <!-- SET A -->
+          <!-- Reel 1 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-1">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Copy Of Vb R9 E82.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 2 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-2">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Copy of vb_r10_e4.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 3 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-3">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Video-10571.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 4 (neety podcast) -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-4">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/neety podcast teaser final.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 5 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-5">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/R_sample_e2.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 6 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-6">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Copy of VB_r12_e5.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 7 -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-1">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Video-2406.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SET B (Loop Duplicate) -->
+          <!-- Reel 1 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-1">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Ayushi_atlas_e2.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 2 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-2">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Video-36358.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 3 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-3">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Video-10571.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 4 Duplicate (neety podcast) -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-4">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Mcg R5 E10.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 5 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-5">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/gayrev.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 6 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-6">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/brain2.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 7 Duplicate -->
+          <div class="client-reel-card">
+            <div class="client-reel-inner">
+              <div class="client-reel-wrap grad-1">
+                <video autoplay muted loop playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" src="videos/Video-8560.mp4"></video>
+                <div class="vid-overlay"><div class="vid-pulse"></div><span class="vid-playing-txt">● PLAYING</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brutalist Section Connector Strip -->
+  <div class="brutal-divider-strip">
+    <div class="strip-tag"><i class="fa-solid fa-handshake"></i> <span>COLLABORATORS // ROSTER</span></div>
+    <div class="brutal-cal-bar"></div>
+    <div class="strip-tag">[TRUSTED_BRANDS // 12_UNITS]</div>
+    <div class="brutal-comb-lines"></div>
+    <div class="strip-tag"><span>STATUS: VERIFIED</span></div>
+  </div>
+
+  <!-- ========== TRUSTED BRANDS & COLLABORATORS ========== -->
+  <section class="brands-section" id="brands">
+    <div class="brutal-watermark">BRANDS // 03</div>
+    <div class="brutal-corner-cross bc-tl">+</div>
+    <div class="brutal-corner-cross bc-tr">+</div>
+    <div class="brutal-corner-cross bc-bl">+</div>
+    <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- Brutalist Ticket Decal (Image 6) -->
+    <div class="brutal-ticket-tag" style="top: 15%; left: 3%;">
+      <span class="btt-notch left"></span>
+      <span class="btt-notch right"></span>
+      <div class="btt-header">ROSTER // 12</div>
+      <div class="btt-body">VERIFIED BRANDS<br/>[PROXIMITY_ACTIVE]</div>
+    </div>
+
+    <!-- Brutalist LED & Battery Gauge (Image 6) -->
+    <div class="brutal-led-badge" style="bottom: 12%; right: 4%;">
+      <span class="blb-lcd">12</span>
+      <div class="blb-bars">
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg filled"></span>
+        <span class="blb-bar-seg filled"></span>
+      </div>
+      <span class="blb-sub">SLOTS // 100% READY</span>
+    </div>
+
+    <!-- Brutalist Starburst & Wireframe Globe Decals -->
+    <div class="brutal-starburst" style="top: 12%; right: 4%;"></div>
+    <div style="position:absolute; bottom: 8%; left: 4%; opacity: 0.18; pointer-events:none;">
+      <svg width="75" height="75" viewBox="0 0 100 100" fill="none" stroke="#67e8f9" stroke-width="2">
+        <circle cx="50" cy="50" r="45" />
+        <ellipse cx="50" cy="50" rx="45" ry="20" />
+        <ellipse cx="50" cy="50" rx="20" ry="45" />
+        <line x1="5" y1="50" x2="95" y2="50" />
+        <line x1="50" y1="5" x2="50" y2="95" />
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="sec-header reveal-up" style="text-align:center;">
+        <div class="sec-label">Clients &amp; Collaborators</div>
+        <h2 class="sec-title">Brands I've <span class="grad-text">Worked With</span></h2>
+      </div>
+
+      <!-- Organized 12-Box Brutalist Grid with Smooth Proximity Focus -->
+      <div class="brands-grid reveal-up" id="brandsGrid">
+
+        <!-- Box 01 -->
+        <div class="brand-box" data-brand="1">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 01 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 02 -->
+        <div class="brand-box" data-brand="2">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 02 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 03 -->
+        <div class="brand-box" data-brand="3">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 03 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 04 -->
+        <div class="brand-box" data-brand="4">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 04 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 05 -->
+        <div class="brand-box" data-brand="5">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 05 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 06 -->
+        <div class="brand-box" data-brand="6">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 06 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 07 -->
+        <div class="brand-box" data-brand="7">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 07 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 08 -->
+        <div class="brand-box" data-brand="8">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 08 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 09 -->
+        <div class="brand-box" data-brand="9">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 09 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 10 -->
+        <div class="brand-box" data-brand="10">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 10 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 11 -->
+        <div class="brand-box" data-brand="11">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 11 ]</span>
+          </div>
+        </div>
+
+        <!-- Box 12 -->
+        <div class="brand-box" data-brand="12">
+          <span class="brand-box-corner bc-tl">+</span><span class="brand-box-corner bc-tr">+</span>
+          <span class="brand-box-corner bc-bl">+</span><span class="brand-box-corner bc-br">+</span>
+          <div class="brand-box-icon-ph"><i class="fa-solid fa-plus"></i></div>
+          <div class="brand-box-text-ph">
+            <span class="ph-line-bar"></span>
+            <span class="ph-label">[ BRAND 12 ]</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Brutalist Section Connector Strip -->
+  <div class="brutal-divider-strip">
+    <div class="strip-tag"><i class="fa-solid fa-layer-group"></i> <span>PRODUCTION_PIPELINE</span></div>
+    <div class="brutal-cal-bar"></div>
+    <div class="strip-tag"><span>[CAPACITY: OPEN]</span></div>
+    <div class="brutal-comb-lines"></div>
+    <div class="strip-tag">[SERVICES // 04]</div>
+  </div>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-header reveal-up">
+        <div class="sec-label">What I Do</div>
+        <h2 class="sec-title">My <span class="grad-text">Services</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card reveal-up">
+          <div class="svc-icon"><i class="fa-brands fa-instagram"></i></div>
+          <h3>Instagram Reels</h3>
+          <p>Hook-driven vertical edits designed to stop the scroll and boost engagement.</p>
+        </div>
+        <div class="svc-card reveal-up">
+          <div class="svc-icon"><i class="fa-brands fa-youtube"></i></div>
+          <h3>YouTube Shorts</h3>
+          <p>Algorithm-optimised short content that keeps viewers watching and subscribing.</p>
+        </div>
+        <div class="svc-card reveal-up">
+          <div class="svc-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Color Grading</h3>
+          <p>Cinematic color science that gives your footage a premium, intentional look.</p>
+        </div>
+        <div class="svc-card reveal-up">
+          <div class="svc-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>UGC Content</h3>
+          <p>High-converting UGC video ads and organic product edits engineered for brands and creators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brutalist Section Connector Strip -->
+  <div class="brutal-divider-strip">
+    <div class="strip-tag"><i class="fa-solid fa-paper-plane"></i> <span>COMMUNICATION_LINK</span></div>
+    <div class="brutal-comb-lines"></div>
+    <div class="strip-tag"><span>[STATUS: READY_TO_COLLABORATE]</span></div>
+    <div class="brutal-cal-bar"></div>
+    <div class="strip-tag">[CONNECT // 05]</div>
+  </div>
+
+  <!-- ========== CONTACT ========== -->
+  <!-- Form removed per request — socials + email only -->
+  <section class="contact" id="contact">
+    <div class="brutal-watermark">CONNECT // 04</div>
+    <div class="brutal-corner-cross bc-tl">+</div>
+    <div class="brutal-corner-cross bc-tr">+</div>
+    <div class="brutal-corner-cross bc-bl">+</div>
+    <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- Brutalist Optical Starburst -->
+    <div class="brutal-starburst" style="top: 15%; right: 5%;"></div>
+
+    <!-- Brutalist Boarding Pass Decal (Image 8) -->
+    <div class="brutal-boarding-pass" style="bottom: 12%; left: 4%;">
+      <div class="bbp-header">
+        <span class="bbp-brand">INQUIRY.DESK</span>
+        <span class="bbp-tag">[SLOTS_OPEN]</span>
+      </div>
+      <div class="bbp-accent-strip">
+        <span class="bbp-strip-text">DIRECT EDITORIAL INQUIRY &bull; 24H RESPONSE</span>
+        <span class="bbp-code">COMM // 01</span>
+      </div>
+      <div class="bbp-meta">
+        <div class="bbp-meta-col">
+          <span class="bbp-label">TURNAROUND</span>
+          <span class="bbp-val">24-48 HRS</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">REVISIONS</span>
+          <span class="bbp-val">UNLIMITED</span>
+        </div>
+        <div class="bbp-meta-col">
+          <span class="bbp-label">STATUS</span>
+          <span class="bbp-val">ACCEPTING</span>
+        </div>
+      </div>
+      <div class="bbp-barcode-row">
+        <div class="bbp-bars"></div>
+        <span class="bbp-stamp">KNV-INBOX // ACTIVE</span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="contact-inner reveal-up">
+        <div class="sec-label">Contact</div>
+        <h2 class="sec-title">Let's create something <span class="grad-text">extraordinary.</span></h2>
+        <p class="contact-desc">
+          Ready to take your content to the next level? Reach out and let's talk about your project.
+        </p>
+        <div class="contact-email-wrapper">
+          <a href="mailto:svasudevs98@gmail.com" class="btn-email-cta" id="btnWriteMail" title="Send an email directly">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span class="btn-email-title">WRITE ME A MAIL</span>
+            <span class="email-subtext">[ svasudevs98@gmail.com ]</span>
+          </a>
+          <button type="button" class="btn-copy-email" id="btnCopyEmail" title="Copy email address to clipboard" aria-label="Copy email">
+            <i class="fa-solid fa-copy"></i>
+            <span id="copyEmailText">COPY</span>
+          </button>
+        </div>
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/kidnamedvasu" class="social-btn" title="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.behance.net/vasudevsawant2" class="social-btn" title="Behance" target="_blank" rel="noopener">
+            <i class="fa-brands fa-behance"></i>
+            <span>Behance</span>
+          </a>
+        </div>
+
+        <!-- Industrial Boarding Pass Badge (from reference Image 3) -->
+        <div class="brutal-spec-sticker" style="margin: 2rem auto 0; max-width: 440px;">
+          <div class="bss-header">
+            <span>AVLBL : 2026 // WORLDWIDE</span>
+            <span>○ DIRECT_CONNECT [1]</span>
+          </div>
+          <div class="bss-row">
+            <span>TIMEZONE: GLOBAL_FLEX</span>
+            <span>COMM: EMAIL // SOCIALS</span>
+          </div>
+          <div class="bss-row">
+            <span>FORMAT: 9:16 VERTICAL REELS</span>
+            <span>DELIVERY: FAST_TRACK</span>
+          </div>
+        </div>
+
+        <p class="contact-note" style="margin-top: 1.5rem;">Based anywhere · Available worldwide · Fast turnaround</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo"><span class="bracket">[</span>PORTFOLIO<span class="bracket">]</span></div>
+        <nav class="footer-nav">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#clientWorkSection">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="btn-back-to-top" id="btnBackToTop" aria-label="Back to Top">
+          <i class="fa-solid fa-arrow-up"></i>
+          <span>BACK TO TOP [↑]</span>
+        </button>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 kidnamedvasu. All rights reserved.</span>
+        <span>Made with <i class="fa-solid fa-heart" style="color:var(--sky)"></i> &amp; Premiere Pro</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== CATEGORY SHOWCASE FULLSCREEN MODAL ========== -->
+  <div class="category-modal" id="categoryModal" aria-hidden="true">
+    <div class="cat-modal-backdrop" id="catModalBackdrop"></div>
+    <div class="cat-modal-container">
+      
+      <!-- Top Bar with Back to Portfolio Button at top-right -->
+      <div class="cat-modal-header">
+        <div class="cat-modal-info">
+          <span class="cat-modal-badge" id="catModalBadge">STYLE ARCHIVE</span>
+          <h2 class="cat-modal-title" id="catModalTitle">Simple Reels</h2>
+          <p class="cat-modal-desc" id="catModalDesc">Clean, hook-driven edits built to retain viewer attention across short-form platforms.</p>
+        </div>
+        <button class="btn-back-portfolio" id="btnBackPortfolio" aria-label="Back to Portfolio">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Portfolio</span>
+        </button>
+      </div>
+
+      <!-- Video Grid (2-3 vertical reels) -->
+      <div class="cat-modal-grid" id="catModalGrid">
+        <!-- Rendered dynamically by script.js based on selected category -->
+      </div>
+
+      <!-- Modal Footer CTA — Direct path to hire -->
+      <div class="cat-modal-footer">
+        <div class="cat-modal-footer-cta">
+          <div class="cmf-text">
+            <span class="cmf-label"><i class="fa-solid fa-sparkles"></i> LIKE WHAT YOU SEE?</span>
+            <span class="cmf-sub">Ready to take your content to the next level with edits in this style?</span>
+          </div>
+          <a href="#contact" class="btn-primary cat-modal-hire-btn" id="modalHireBtn">
+            <span>Hire Me / Start a Project</span>
+            <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification for Email Copy -->
+  <div class="brutal-toast" id="brutalToast" aria-live="polite">
+    <i class="fa-solid fa-check"></i>
+    <span>[ EMAIL COPIED: svasudevs98@gmail.com ]</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
