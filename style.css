@@ -1454,6 +1454,19 @@ ul { list-style: none; }
   transition: color 0.4s ease;
 }
 
+.brand-name {
+  font-family: var(--fd);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--nail-bright);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.35;
+  transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
+  max-width: 220px;
+}
+
 /* Proximity dimming: Slower, gentle dimming across non-focused boxes */
 .brands-grid:hover .brand-box {
   opacity: 0.32;
@@ -1488,8 +1501,11 @@ ul { list-style: none; }
 }
 
 .brand-box:hover .ph-label,
-.brand-box.is-proximate .ph-label {
-  color: var(--nail-bright);
+.brand-box.is-proximate .ph-label,
+.brand-box:hover .brand-name,
+.brand-box.is-proximate .brand-name {
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.75);
 }
 
 /* ─── SERVICES ───────────────────────────────────────── */
