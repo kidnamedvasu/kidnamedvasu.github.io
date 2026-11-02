@@ -1151,23 +1151,27 @@ ul { list-style: none; }
 .client-work-section {
   position: relative;
   width: 100%;
-  height: 250vh;
+  height: 280vh;
   margin-top: 2rem;
-  padding: 4rem 0 2rem;
+  padding: 0;
   background: var(--dark-1);
-  overflow-x: clip;
+  overflow: visible;
 }
 
 .client-work-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 5;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1rem;
 }
 
 .client-audio-toggle-wrap {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -1208,17 +1212,26 @@ ul { list-style: none; }
 
 .client-scroll-pin {
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
   width: 100%;
-  overflow: visible;
-  padding: 1rem 0;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
 }
 
 .client-track-container {
   width: 100%;
   overflow: hidden;
-  padding: 2.8rem 0;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
 }
 
 .client-reel-track {
@@ -2804,7 +2817,8 @@ ul { list-style: none; }
   .brutal-starburst,
   .brutal-bg-sign,
   .client-flank-sign,
-  .client-grid-flank {
+  .client-grid-flank,
+  .brutal-corner-cross {
     display: none !important;
   }
 }
@@ -2847,68 +2861,134 @@ ul { list-style: none; }
   .nav-links, .btn-nav-cta { display: none; }
   .hamburger { display: flex; }
 
-  /* Hero Mobile Fit — No text cropping */
+  /* Hero Mobile Fit — Zero Text Cropping */
+  .hero {
+    overflow: hidden !important;
+  }
   .hero-content {
-    padding: 6.5rem 1.2rem 110px !important;
+    padding: 5rem 1rem 95px !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .hero-name {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
   .name-top {
-    font-size: clamp(2.3rem, 10vw, 4rem) !important;
+    font-size: clamp(1.75rem, 8vw, 2.6rem) !important;
     letter-spacing: 0.02em !important;
-    word-break: break-word;
+    line-height: 1.12 !important;
+    white-space: nowrap !important;
+    display: block !important;
+    max-width: 100% !important;
+    word-break: normal !important;
   }
   .name-sub {
-    font-size: clamp(0.75rem, 3.8vw, 1.1rem) !important;
+    font-size: clamp(0.7rem, 3.5vw, 1rem) !important;
     letter-spacing: 0.35em !important;
   }
   .hero-tagline {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
+    margin: 0 auto 1.8rem !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+  }
+  .hero-tagline br {
+    display: none !important;
   }
   .hero-btns {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.8rem !important;
   }
   .hero-stats {
-    gap: 1.4rem !important;
+    gap: 1.2rem !important;
   }
   .stat-num {
-    font-size: 1.8rem !important;
+    font-size: 1.7rem !important;
   }
   .stat-suf {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
   }
 
   /* NLE timeline scaled */
   .nle-timeline {
-    height: 85px !important;
+    height: 80px !important;
+  }
+  .nle-header-right .nle-label:last-child {
+    display: none !important;
   }
   .track {
-    height: 18px !important;
+    height: 17px !important;
   }
   .clip {
-    height: 14px !important;
-    font-size: 0.36rem !important;
+    height: 13px !important;
+    font-size: 0.35rem !important;
   }
 
-  /* Client Work Mobile: Pin in the vertical middle of screen */
+  /* Client Work Mobile: Centered in Viewport */
   .client-work-section {
-    height: 260vh;
-    padding: 3rem 0 1rem;
+    height: 270vh !important;
+    margin-top: 1rem !important;
+    padding: 0 !important;
+    overflow: visible !important;
   }
   .client-scroll-pin {
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
     padding: 0.5rem 0 !important;
+    box-sizing: border-box !important;
+  }
+  .client-work-header {
+    margin-bottom: 0.6rem !important;
+    padding: 0 1rem !important;
+  }
+  .client-work-header .sec-label {
+    font-size: 0.62rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .client-work-header .sec-title {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  .client-work-header .sec-sub {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    max-width: 90% !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .client-audio-toggle-wrap {
+    margin-top: 0.35rem !important;
+  }
+  .btn-client-audio {
+    padding: 0.45rem 1rem !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 1px !important;
   }
   .client-track-container {
-    padding: 2.4rem 0 !important;
+    padding: 0.4rem 0 !important;
+    width: 100% !important;
   }
   .client-reel-card {
-    width: 215px !important;
+    width: 200px !important;
+    max-height: 355px !important;
   }
   .client-reel-track {
-    padding-left: calc(50vw - 107px) !important;
+    padding-left: calc(50vw - 100px) !important;
     padding-right: 50vw !important;
-    gap: 1.3rem !important;
+    gap: 1.2rem !important;
   }
 
   /* 3D Cube on Mobile */
@@ -3019,6 +3099,21 @@ ul { list-style: none; }
 @media(max-width: 480px) {
   .container {
     padding: 0 1.1rem;
+  }
+  .client-work-header .sec-sub {
+    display: none !important;
+  }
+  .name-top {
+    font-size: clamp(1.62rem, 7.6vw, 2.1rem) !important;
+  }
+  .client-reel-card {
+    width: 185px !important;
+    max-height: 330px !important;
+  }
+  .client-reel-track {
+    padding-left: calc(50vw - 92.5px) !important;
+    padding-right: 50vw !important;
+    gap: 1rem !important;
   }
   .hero-stats {
     gap: 1rem !important;
