@@ -42,7 +42,7 @@
 
 /* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body {
   font-family: var(--fb);
   background: var(--dark);
@@ -1208,16 +1208,17 @@ ul { list-style: none; }
 
 .client-scroll-pin {
   position: sticky;
-  top: 10vh;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
-  overflow: hidden;
-  padding: 1.5rem 0 3rem;
+  overflow: visible;
+  padding: 1rem 0;
 }
 
 .client-track-container {
   width: 100%;
-  overflow: visible;
-  padding: 1rem 0;
+  overflow: hidden;
+  padding: 2.8rem 0;
 }
 
 .client-reel-track {
@@ -1226,7 +1227,7 @@ ul { list-style: none; }
   align-items: center;
   width: max-content;
   will-change: transform;
-  padding-left: calc(50vw - 140px); /* Start with card 1 near center */
+  padding-left: calc(50vw - 135px); /* Start with card 1 near center */
   padding-right: 50vw;
   transition: transform 0.08s linear;
 }
@@ -2781,46 +2782,280 @@ ul { list-style: none; }
 .vf-bl { bottom: 6px; left: 6px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
 .vf-br { bottom: 6px; right: 6px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
 
-/* Hide floating decals on small mobile screens to prevent clutter */
-@media(max-width: 768px) {
-  .brutal-window-card,
-  .brutal-boarding-pass,
-  .brutal-ticket-tag,
-  .brutal-floppy-badge,
-  .brutal-led-badge {
+/* ─── TOUCH DEVICE CURSOR OPTIMIZATION ───────────────── */
+@media(hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-watch {
     display: none !important;
   }
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────────── */
-@media(max-width:1100px){
-  .cube-layout { grid-template-columns: 1fr; gap:2.5rem; text-align:center; }
-  .cube-stage { height:280px; }
-  .cube-categories { flex-direction:row; flex-wrap:wrap; justify-content:center; gap:0.5rem; }
-  .cat-item { width:calc(50% - 0.5rem); }
-  .services-grid { grid-template-columns:repeat(2,1fr); }
+/* ─── HIDE OVERLAY DECALS ON TABLETS & MOBILE TO PREVENT OVERFLOW ─── */
+@media(max-width: 992px) {
+  .brutal-window-card,
+  .brutal-boarding-pass,
+  .brutal-ticket-tag,
+  .brutal-floppy-badge,
+  .brutal-led-badge,
+  .brutal-starburst,
+  .brutal-bg-sign,
+  .client-flank-sign,
+  .client-grid-flank {
+    display: none !important;
+  }
 }
-@media(max-width:900px){
-  .about-grid { grid-template-columns:1fr; gap:2.5rem; }
-  .navbar { padding:1.2rem 1.5rem; }
-  .navbar.scrolled { padding:0.85rem 1.5rem; }
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+/* ─── RESPONSIVE BREAKPOINTS ─────────────────────────── */
+
+/* 1. Large Tablets / Small Laptops (1100px) */
+@media(max-width: 1100px) {
+  .cube-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .cube-stage { height: 280px; }
+  .cube-categories {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .cat-item { width: calc(50% - 0.5rem); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* 2. Tablets (900px) */
+@media(max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .about-text { align-items: center; }
+  .navbar { padding: 1rem 1.5rem; }
+  .navbar.scrolled { padding: 0.75rem 1.5rem; }
   .client-reel-card { width: 240px; }
+  .client-reel-track {
+    padding-left: calc(50vw - 120px);
+    gap: 1.8rem;
+  }
 }
-@media(max-width:768px){
-  .nav-links,.btn-nav-cta { display:none; }
-  .hamburger { display:flex; }
-  .nle-timeline { height:120px; }
-  .contact-socials { flex-direction:column; align-items:center; }
+
+/* 3. Small Tablets & Phones (768px) */
+@media(max-width: 768px) {
+  .nav-links, .btn-nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  /* Hero Mobile Fit — No text cropping */
+  .hero-content {
+    padding: 6.5rem 1.2rem 110px !important;
+  }
+  .name-top {
+    font-size: clamp(2.3rem, 10vw, 4rem) !important;
+    letter-spacing: 0.02em !important;
+    word-break: break-word;
+  }
+  .name-sub {
+    font-size: clamp(0.75rem, 3.8vw, 1.1rem) !important;
+    letter-spacing: 0.35em !important;
+  }
+  .hero-tagline {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  .hero-btns {
+    margin-bottom: 2rem !important;
+  }
+  .hero-stats {
+    gap: 1.4rem !important;
+  }
+  .stat-num {
+    font-size: 1.8rem !important;
+  }
+  .stat-suf {
+    font-size: 1.1rem !important;
+  }
+
+  /* NLE timeline scaled */
+  .nle-timeline {
+    height: 85px !important;
+  }
+  .track {
+    height: 18px !important;
+  }
+  .clip {
+    height: 14px !important;
+    font-size: 0.36rem !important;
+  }
+
+  /* Client Work Mobile: Pin in the vertical middle of screen */
+  .client-work-section {
+    height: 260vh;
+    padding: 3rem 0 1rem;
+  }
+  .client-scroll-pin {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 0.5rem 0 !important;
+  }
+  .client-track-container {
+    padding: 2.4rem 0 !important;
+  }
+  .client-reel-card {
+    width: 215px !important;
+  }
+  .client-reel-track {
+    padding-left: calc(50vw - 107px) !important;
+    padding-right: 50vw !important;
+    gap: 1.3rem !important;
+  }
+
+  /* 3D Cube on Mobile */
+  .cube-section {
+    padding: 5rem 0;
+  }
+  .cube-stage {
+    height: 250px;
+  }
+  .cube-perspective {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+  .cube-categories {
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  }
+  .cat-item {
+    width: 100% !important;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Telemetry Dividers */
+  .brutal-divider-strip {
+    padding: 0.5rem 1rem;
+    font-size: 0.55rem;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  .brutal-cal-bar, .brutal-comb-lines {
+    display: none;
+  }
+
+  /* Category Modal Mobile Full View */
+  .category-modal {
+    padding: 1.5rem 0.8rem !important;
+  }
+  .cat-modal-header {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+  }
+  .btn-back-portfolio {
+    align-self: flex-start;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+  }
+  .cat-modal-title {
+    font-size: 2rem !important;
+  }
+  .cat-modal-footer-cta {
+    padding: 1.2rem 1.2rem !important;
+    flex-direction: column;
+    text-align: center;
+  }
+  .cat-modal-hire-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .cat-modal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.4rem;
+  }
+
+  /* Contact socials */
+  .contact-socials {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-btn {
+    width: min(280px, 100%);
+    justify-content: center;
+  }
 }
-@media(max-width:600px){
-  .portfolio-grid { grid-template-columns:1fr; }
-  .client-reel-card { width: 210px; }
+
+/* 4. Small Mobile Phones (640px and below) */
+@media(max-width: 640px) {
+  .brands-section {
+    padding: 4.5rem 0;
+  }
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+    margin-top: 2rem !important;
+  }
+  .brand-box {
+    padding: 1.2rem 0.6rem !important;
+    min-height: 115px !important;
+    gap: 0.65rem !important;
+  }
+  .brand-name {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.6px !important;
+    max-width: 100% !important;
+    word-break: break-word;
+    line-height: 1.25 !important;
+  }
+  .brand-box-icon-ph {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.75rem !important;
+  }
 }
-@media(max-width:480px){
-  .hero-stats { gap:1.2rem; }
-  .stat-num { font-size:1.6rem; }
-  .filter-row { flex-wrap:wrap; }
-  .services-grid { grid-template-columns:1fr; }
-  .footer-top,.footer-bottom { flex-direction:column; align-items:center; text-align:center; }
+
+/* 5. Extra Small Phones (480px and below) */
+@media(max-width: 480px) {
+  .container {
+    padding: 0 1.1rem;
+  }
+  .hero-stats {
+    gap: 1rem !important;
+  }
+  .stat-num {
+    font-size: 1.5rem !important;
+  }
+  .stat-suf {
+    font-size: 1rem !important;
+  }
+  .stat-lbl {
+    font-size: 0.58rem !important;
+    letter-spacing: 1px !important;
+  }
+  .skills-list {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top, .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* 6. Ultra-narrow screens (360px and below) */
+@media(max-width: 360px) {
+  .brands-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .client-reel-card {
+    width: 190px !important;
+  }
+  .client-reel-track {
+    padding-left: calc(50vw - 95px) !important;
+  }
 }
