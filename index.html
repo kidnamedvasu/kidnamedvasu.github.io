@@ -14,17 +14,45 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=2.6" />
+  <link rel="stylesheet" href="style.css?v=2.7" />
 
-  <!-- Critical Mobile Viewport & Centering Overrides -->
   <style>
-    /* Prevent viewport wobble and horizontal overflow */
-    html, body {
-      width: 100% !important;
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
-      position: relative !important;
+    /* Prevent horizontal scrollbar without breaking position:sticky */
+    html {
+      overflow-x: clip !important;
     }
+    body {
+      overflow-x: visible !important;
+    }
+
+    /* About Me Skills: Always keep boxes side by side (2 columns) on mobile just like PC */
+    .skills-list {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 0.65rem !important;
+    }
+    .skill-chip {
+      padding: 0.55rem 0.65rem !important;
+      font-size: 0.74rem !important;
+      gap: 0.45rem !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    /* Hero Name: Fit complete KIDNAMEDVASU without edge cropping */
+    @media (max-width: 768px) {
+      .name-top {
+        font-size: clamp(1.75rem, 8vw, 2.6rem) !important;
+        letter-spacing: 0.02em !important;
+        white-space: nowrap !important;
+        display: block !important;
+      }
+      .hero-tagline br {
+        display: none !important;
+      }
+    }
+
     /* Hide overflowing technical signs and decals on mobile / tablet */
     @media (max-width: 992px) {
       .brutal-bg-sign,
@@ -38,111 +66,6 @@
       .brutal-starburst,
       .brutal-corner-cross {
         display: none !important;
-      }
-    }
-    /* Mobile Hero Typography: Guarantee full name KIDNAMEDVASU fits without cropping */
-    @media (max-width: 768px) {
-      .hero {
-        overflow: hidden !important;
-      }
-      .hero-content {
-        padding: 5rem 1rem 95px !important;
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
-      }
-      .name-top {
-        font-size: clamp(1.75rem, 8vw, 2.6rem) !important;
-        letter-spacing: 0.02em !important;
-        line-height: 1.12 !important;
-        white-space: nowrap !important;
-        display: block !important;
-        max-width: 100% !important;
-      }
-      .hero-tagline {
-        font-size: 0.88rem !important;
-        line-height: 1.55 !important;
-        padding: 0 0.5rem !important;
-        max-width: 100% !important;
-        word-wrap: break-word !important;
-      }
-      .hero-tagline br {
-        display: none !important;
-      }
-      /* Client Work Horizontal Section: Vertically center reels in 100dvh sticky container */
-      .client-work-section {
-        height: 270vh !important;
-        margin-top: 1rem !important;
-        padding: 0 !important;
-        overflow: visible !important;
-      }
-      .client-scroll-pin {
-        position: sticky !important;
-        top: 0 !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        transform: none !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        overflow: hidden !important;
-        padding: 0.5rem 0 !important;
-        box-sizing: border-box !important;
-      }
-      .client-work-header {
-        margin-bottom: 0.6rem !important;
-        padding: 0 1rem !important;
-      }
-      .client-work-header .sec-label {
-        font-size: 0.62rem !important;
-        margin-bottom: 0.2rem !important;
-      }
-      .client-work-header .sec-title {
-        font-size: 1.45rem !important;
-        margin-bottom: 0.25rem !important;
-      }
-      .client-work-header .sec-sub {
-        font-size: 0.78rem !important;
-        line-height: 1.35 !important;
-        margin-bottom: 0.4rem !important;
-      }
-      .client-audio-toggle-wrap {
-        margin-top: 0.35rem !important;
-      }
-      .btn-client-audio {
-        padding: 0.45rem 1rem !important;
-        font-size: 0.62rem !important;
-        letter-spacing: 1px !important;
-      }
-      .client-track-container {
-        padding: 0.4rem 0 !important;
-        width: 100% !important;
-      }
-      .client-reel-card {
-        width: 200px !important;
-        max-height: 355px !important;
-      }
-      .client-reel-track {
-        padding-left: calc(50vw - 100px) !important;
-        padding-right: 50vw !important;
-        gap: 1.2rem !important;
-      }
-    }
-    @media (max-width: 480px) {
-      .client-work-header .sec-sub {
-        display: none !important;
-      }
-      .name-top {
-        font-size: clamp(1.62rem, 7.6vw, 2.1rem) !important;
-      }
-      .client-reel-card {
-        width: 185px !important;
-        max-height: 330px !important;
-      }
-      .client-reel-track {
-        padding-left: calc(50vw - 92.5px) !important;
-        padding-right: 50vw !important;
-        gap: 1rem !important;
       }
     }
   </style>
@@ -671,20 +594,20 @@
       </div>
     </div>
 
+    <div class="client-work-header reveal-up">
+      <div class="sec-label">Client Showcase</div>
+      <h2 class="sec-title">Client <span class="grad-text">Work</span></h2>
+      <p class="sec-sub">Vertical reels crafted for creators and brands — scroll down to explore the gallery.</p>
+      <div class="client-audio-toggle-wrap">
+        <button class="btn-client-audio" id="btnClientAudio" aria-label="Toggle audio on client reels" type="button">
+          <i class="fa-solid fa-volume-xmark" id="clientAudioIcon"></i>
+          <span id="clientAudioLabel">SOUND: OFF [CLICK TO UNMUTE]</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Sticky viewport container for seamless horizontal movement -->
     <div class="client-scroll-pin" id="clientScrollPin">
-      <div class="client-work-header">
-        <div class="sec-label">Client Showcase</div>
-        <h2 class="sec-title">Client <span class="grad-text">Work</span></h2>
-        <p class="sec-sub">Vertical reels crafted for creators and brands — scroll down to explore the gallery.</p>
-        <div class="client-audio-toggle-wrap">
-          <button class="btn-client-audio" id="btnClientAudio" aria-label="Toggle audio on client reels" type="button">
-            <i class="fa-solid fa-volume-xmark" id="clientAudioIcon"></i>
-            <span id="clientAudioLabel">SOUND: OFF [CLICK TO UNMUTE]</span>
-          </button>
-        </div>
-      </div>
-
       <div class="client-track-container" id="clientTrackContainer">
         <div class="client-reel-track" id="clientReelTrack">
 
@@ -1192,6 +1115,6 @@
     <span>[ EMAIL COPIED: svasudevs98@gmail.com ]</span>
   </div>
 
-  <script src="script.js?v=2.6"></script>
+  <script src="script.js?v=2.7"></script>
 </body>
 </html>
