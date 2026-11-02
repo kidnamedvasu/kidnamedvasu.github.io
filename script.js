@@ -114,9 +114,10 @@ const nleTimeline       = document.getElementById('nleTimeline');
 const nlePlayhead       = document.getElementById('nlePlayhead');
 const nleTimecode       = document.getElementById('nleTimecode');
 
-const clientSection     = document.getElementById('clientWorkSection');
-const clientTrack       = document.getElementById('clientReelTrack');
-const clientCards       = document.querySelectorAll('.client-reel-card');
+const clientSection        = document.getElementById('clientWorkSection');
+const clientTrackContainer = document.getElementById('clientTrackContainer');
+const clientTrack          = document.getElementById('clientReelTrack');
+const clientCards          = document.querySelectorAll('.client-reel-card');
 
 window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -334,27 +335,79 @@ if (btnClientAudio) {
   btnClientAudio.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
 }
 
-function updateClientHorizontalScroll(scrollY) {
-  if (!clientSection || !clientTrack) return;
+/* ─────────────────────────────────────────────────────
+   CLIENT REELS CAROUSEL: TOUCH SWIPE, DRAG & ARROW NAV
+   ───────────────────────────────────────────────────── */
+const btnClientPrev = document.getElementById('btnClientPrev');
+const btnClientNext = document.getElementById('btnClientNext');
 
-  const rect    = clientSection.getBoundingClientRect();
-  const sTop    = rect.top;
-  const sHeight = rect.height - window.innerHeight;
+if (btnClientPrev && clientTrackContainer) {
+  btnClientPrev.addEventListener('click', () => {
+    const card = clientCards[0];
+    const shift = card ? card.offsetWidth + 25 : 280;
+    clientTrackContainer.scrollBy({ left: -shift, behavior: 'smooth' });
+  });
+  if (typeof cursorRing !== 'undefined') {
+    btnClientPrev.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+    btnClientPrev.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+  }
+}
 
-  if (sHeight <= 0) return;
-  // Progress clamped between 0 and 1
-  const progress = Math.min(1, Math.max(0, -sTop / sHeight));
+if (btnClientNext && clientTrackContainer) {
+  btnClientNext.addEventListener('click', () => {
+    const card = clientCards[0];
+    const shift = card ? card.offsetWidth + 25 : 280;
+    clientTrackContainer.scrollBy({ left: shift, behavior: 'smooth' });
+  });
+  if (typeof cursorRing !== 'undefined') {
+    btnClientNext.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+    btnClientNext.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+  }
+}
 
-  // Determine max translation: track width minus viewport width
-  const trackWidth = clientTrack.scrollWidth;
-  const viewWidth  = window.innerWidth;
-  const maxScroll  = Math.max(0, trackWidth - viewWidth);
+// Mouse drag-to-scroll for desktop users
+let isClientDragging = false;
+let clientStartX = 0;
+let clientScrollLeft = 0;
 
-  const translateX = -progress * maxScroll;
-  clientTrack.style.transform = `translateX(${translateX}px)`;
+if (clientTrackContainer) {
+  clientTrackContainer.addEventListener('mousedown', (e) => {
+    isClientDragging = true;
+    clientTrackContainer.style.scrollBehavior = 'auto';
+    clientStartX = e.pageX - clientTrackContainer.offsetLeft;
+    clientScrollLeft = clientTrackContainer.scrollLeft;
+  });
 
-  // Identify middle reel card and focus it
-  const screenCenter = viewWidth / 2;
+  window.addEventListener('mouseup', () => {
+    if (isClientDragging) {
+      isClientDragging = false;
+      if (clientTrackContainer) clientTrackContainer.style.scrollBehavior = 'smooth';
+    }
+  });
+
+  clientTrackContainer.addEventListener('mouseleave', () => {
+    isClientDragging = false;
+    clientTrackContainer.style.scrollBehavior = 'smooth';
+  });
+
+  clientTrackContainer.addEventListener('mousemove', (e) => {
+    if (!isClientDragging) return;
+    e.preventDefault();
+    const x = e.pageX - clientTrackContainer.offsetLeft;
+    const walk = (x - clientStartX) * 1.5;
+    clientTrackContainer.scrollLeft = clientScrollLeft - walk;
+  });
+
+  // Reel focus and audio update on scroll
+  clientTrackContainer.addEventListener('scroll', updateFocusedReelCard, { passive: true });
+}
+
+function updateFocusedReelCard() {
+  if (!clientTrackContainer || !clientCards.length) return;
+
+  const containerRect = clientTrackContainer.getBoundingClientRect();
+  const screenCenter = containerRect.left + containerRect.width / 2;
+
   let closestCard = null;
   let minDistance = Infinity;
 
@@ -371,7 +424,7 @@ function updateClientHorizontalScroll(scrollY) {
 
   clientCards.forEach(card => {
     const vid = card.querySelector('video');
-    if (card === closestCard && minDistance < card.offsetWidth * 0.95) {
+    if (card === closestCard && minDistance < card.offsetWidth * 0.9) {
       card.classList.add('is-focused');
       currentFocusedVideo = vid;
       if (clientAudioActive && vid) {
@@ -386,8 +439,13 @@ function updateClientHorizontalScroll(scrollY) {
   });
 }
 
+function updateClientHorizontalScroll(scrollY) {
+  // Kept for backward compatibility with window scroll listener
+  updateFocusedReelCard();
+}
+
 // Initial calculation on load
-updateClientHorizontalScroll(window.scrollY);
+setTimeout(updateFocusedReelCard, 150);
 
 /* ─────────────────────────────────────────────────────
    PARALLAX ORBS (hero mouse move)

@@ -14,7 +14,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=2.9" />
+  <link rel="stylesheet" href="style.css?v=3.0" />
 
   <style>
     /* About Me Skills: Always keep boxes side by side (2 columns) on mobile just like PC */
@@ -595,12 +595,21 @@
     <div class="client-work-header reveal-up">
       <div class="sec-label">Client Showcase</div>
       <h2 class="sec-title">Client <span class="grad-text">Work</span></h2>
-      <p class="sec-sub">Vertical reels crafted for creators and brands — scroll down to explore the gallery.</p>
-      <div class="client-audio-toggle-wrap">
+      <p class="sec-sub">Vertical reels crafted for creators and brands — swipe or drag horizontally to explore.</p>
+      <div class="client-controls-row">
+        <button class="btn-carousel-arrow" id="btnClientPrev" aria-label="Previous reel" type="button">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
         <button class="btn-client-audio" id="btnClientAudio" aria-label="Toggle audio on client reels" type="button">
           <i class="fa-solid fa-volume-xmark" id="clientAudioIcon"></i>
           <span id="clientAudioLabel">SOUND: OFF [CLICK TO UNMUTE]</span>
         </button>
+        <button class="btn-carousel-arrow" id="btnClientNext" aria-label="Next reel" type="button">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="carousel-hint-pill">
+        <i class="fa-solid fa-hand-pointer"></i> <span>SWIPE OR DRAG TO EXPLORE</span>
       </div>
     </div>
 
@@ -1113,6 +1122,6 @@
     <span>[ EMAIL COPIED: svasudevs98@gmail.com ]</span>
   </div>
 
-  <script src="script.js?v=2.9"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
