@@ -1456,15 +1456,21 @@ ul { list-style: none; }
 
 .brand-name {
   font-family: var(--fd);
-  font-size: 0.84rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--nail-bright);
+  letter-spacing: 1.5px;
+  color: #ffffff !important;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.35;
-  transition: color 0.4s ease, text-shadow 0.4s ease, transform 0.4s ease;
-  max-width: 220px;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 0 10px rgba(103, 232, 249, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 90%;
 }
 
 /* Proximity dimming: Slower, gentle dimming across non-focused boxes */
