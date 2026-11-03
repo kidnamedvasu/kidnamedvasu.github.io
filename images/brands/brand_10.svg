@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 110" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyanG_EBS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow_EBS" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer Technical Decal Frame -->
+  <rect x="5" y="5" width="250" height="100" fill="rgba(6,15,28,0.75)" stroke="rgba(56,189,248,0.35)" stroke-width="1.5" rx="2"/>
+  <rect x="9" y="9" width="242" height="92" fill="none" stroke="rgba(56,189,248,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+  
+  <!-- Corner Crosses -->
+  <path d="M12 16h8M16 12v8M240 16h8M244 12v8M12 94h8M16 90v8M240 94h8M244 90v8" stroke="#38bdf8" stroke-width="1.2"/>
+  
+  <!-- Central Emblem / Monogram -->
+  <circle cx="62" cy="55" r="26" fill="rgba(56,189,248,0.08)" stroke="url(#cyanG_EBS)" stroke-width="2"/>
+  <polygon points="62,35 77,65 47,65" fill="none" stroke="rgba(103,232,249,0.35)" stroke-width="1"/>
+  <text x="62" y="62" font-family="'Cabinet Grotesk', 'Space Grotesk', sans-serif" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">EBS</text>
+  
+  <!-- Brand Typography -->
+  <text x="104" y="50" font-family="'Cabinet Grotesk', 'Montserrat', sans-serif" font-size="15" font-weight="800" fill="url(#cyanG_EBS)" letter-spacing="1.8" filter="url(#glow_EBS)">EBAUSHE</text>
+  <text x="104" y="68" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="rgba(255,255,255,0.55)" letter-spacing="2.5">INTERIORS</text>
+  
+  <!-- Bottom Status Pill -->
+  <text x="104" y="84" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="600" fill="rgba(56,189,248,0.7)" letter-spacing="1.5">[VERIFIED_CLIENT]</text>
+</svg>

@@ -847,11 +847,15 @@ function openCategoryModal(catKey) {
   catModalGrid.innerHTML = data.reels.map((reel, idx) => `
     <div class="cat-reel-card" data-idx="${idx}">
       <div class="cat-reel-video-wrap" style="aspect-ratio: ${reel.aspect || '9 / 16'};">
-        <video playsinline loop preload="metadata" src="${reel.src}"></video>
+        <video playsinline webkit-playsinline disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" loop preload="metadata" src="${reel.src}"></video>
+        <div class="cat-reel-playing-indicator">
+          <span class="pulse-dot"></span> NOW PLAYING
+        </div>
         <div class="cat-reel-play-overlay">
           <div class="cat-play-bubble">
             <i class="fa-solid fa-play"></i>
           </div>
+          <span class="cat-play-hint"><i class="fa-solid fa-volume-high"></i> TAP TO PLAY</span>
         </div>
       </div>
       <div class="cat-reel-info">
