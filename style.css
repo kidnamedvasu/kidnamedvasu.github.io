@@ -1556,6 +1556,8 @@ ul { list-style: none; }
   padding: 7rem 0;
   background: var(--dark-2);
   border-top: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
 }
 .services-grid {
   display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem;
@@ -3369,4 +3371,253 @@ ul { list-style: none; }
   .cat-modal-title {
     font-size: 1.15rem !important;
   }
+}
+
+
+/* ==========================================================================
+   AFTER EFFECTS KEYFRAME & GRAPH EDITOR DECORATIONS (SCATTERED & AMBIENT)
+   ========================================================================== */
+
+.ae-decor {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--fm);
+}
+
+/* Subtle organic floating animations */
+.ae-float-1 { animation: aeFloat1 9s ease-in-out infinite alternate; }
+.ae-float-2 { animation: aeFloat2 11s ease-in-out infinite alternate; }
+.ae-float-3 { animation: aeFloat3 8s ease-in-out infinite alternate; }
+.ae-float-4 { animation: aeFloat4 10s ease-in-out infinite alternate; }
+
+@keyframes aeFloat1 {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-7px) rotate(0.5deg); }
+  100% { transform: translateY(4px) rotate(-0.5deg); }
+}
+
+@keyframes aeFloat2 {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(8px) rotate(-0.8deg); }
+  100% { transform: translateY(-6px) rotate(0.4deg); }
+}
+
+@keyframes aeFloat3 {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes aeFloat4 {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(9px); }
+}
+
+/* HUD Box Container (Graph Editor Cards) */
+.ae-hud-box {
+  width: 172px;
+  background: rgba(6, 9, 17, 0.76);
+  border: 1px solid rgba(103, 232, 249, 0.18);
+  border-radius: 4px;
+  padding: 8px 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(56, 189, 248, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ae-hud-box:hover {
+  border-color: rgba(103, 232, 249, 0.35);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.ae-hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.58rem;
+  letter-spacing: 1.2px;
+  color: rgba(148, 163, 184, 0.85);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.ae-hud-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(226, 232, 240, 0.9);
+  font-weight: 600;
+}
+
+.ae-hud-val {
+  color: rgba(103, 232, 249, 0.8);
+  font-size: 0.54rem;
+}
+
+.ae-graph-svg-wrap {
+  width: 100%;
+  height: 48px;
+  position: relative;
+  overflow: visible;
+}
+
+.ae-graph-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.ae-hud-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.52rem;
+  letter-spacing: 1px;
+  color: rgba(103, 232, 249, 0.7);
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+/* Floating Keyframe Chips & Icons */
+.ae-kf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  background: rgba(6, 9, 17, 0.75);
+  border: 1px solid rgba(103, 232, 249, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  font-size: 0.56rem;
+  letter-spacing: 1.2px;
+  color: rgba(226, 232, 240, 0.85);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ae-kf-mini {
+  display: inline-block;
+  font-size: 0.62rem;
+  line-height: 1;
+}
+
+.ae-mini-amber { color: #fbbf24; text-shadow: 0 0 6px rgba(251, 191, 36, 0.6); }
+.ae-mini-cyan  { color: #38bdf8; text-shadow: 0 0 6px rgba(56, 189, 248, 0.6); }
+.ae-mini-white { color: #f8fafc; }
+
+/* Tangent Pulse Animation */
+@keyframes aePulseHandle {
+  0%, 100% { r: 2.2; opacity: 0.85; }
+  50%      { r: 3.0; opacity: 1; }
+}
+
+.ae-pulse-dot {
+  animation: aePulseHandle 3s ease-in-out infinite;
+}
+
+/* Keyframe Palette Strip (Hero Right) */
+.ae-strip-box {
+  width: 148px;
+  background: rgba(6, 9, 17, 0.76);
+  border: 1px solid rgba(103, 232, 249, 0.18);
+  border-radius: 4px;
+  padding: 8px 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.ae-strip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.ae-strip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.52rem;
+  color: rgba(203, 213, 225, 0.75);
+  padding: 2px 0;
+  border-bottom: 1px dashed rgba(103, 232, 249, 0.08);
+}
+
+.ae-strip-row:last-child {
+  border-bottom: none;
+}
+
+.ae-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ae-shortcut {
+  font-size: 0.48rem;
+  color: rgba(103, 232, 249, 0.6);
+}
+
+/* Positions across sections (Desktop defaults) */
+.ae-hero-left    { left: 2.5%; top: 32%; }
+.ae-hero-right   { right: 2.5%; top: 36%; }
+.ae-hero-float   { left: 8%; bottom: 6%; }
+
+.ae-about-right  { right: 3%; top: 20%; }
+.ae-about-left   { left: 3%; bottom: 18%; }
+
+.ae-cube-left    { left: 3%; top: 30%; }
+.ae-cube-right   { right: 3%; top: 58%; }
+
+.ae-client-left  { left: 2%; top: 12%; }
+.ae-client-right { right: 2%; bottom: 12%; }
+
+.ae-brands-top   { right: 3.5%; top: 8%; }
+.ae-brands-bot   { left: 3.5%; bottom: 6%; }
+
+.ae-svc-left     { left: 2.5%; top: 22%; }
+.ae-svc-right    { right: 2.5%; bottom: 18%; }
+
+.ae-contact-right{ right: 3.5%; top: 24%; }
+.ae-contact-left { left: 3.5%; bottom: 18%; }
+
+/* Responsive adjustments to maintain zero crowding */
+@media (max-width: 1280px) {
+  .ae-hud-box { width: 154px; }
+  .ae-strip-box { width: 136px; }
+  .ae-hero-left { left: 1.5%; }
+  .ae-hero-right { right: 1.5%; }
+}
+
+@media (max-width: 1024px) {
+  /* On medium screens, tuck them into margins or soften opacity */
+  .ae-hud-box { opacity: 0.65; transform: scale(0.92); }
+  .ae-strip-box { opacity: 0.65; transform: scale(0.92); }
+}
+
+@media (max-width: 860px) {
+  /* On tablets and mobile, hide bulky HUD graph cards to prevent clutter */
+  .ae-hud-box,
+  .ae-strip-box {
+    display: none !important;
+  }
+  
+  /* Keep only subtle floating keyframe chips in safe positions with low opacity */
+  .ae-kf-chip {
+    opacity: 0.28;
+    transform: scale(0.85);
+  }
+  
+  .ae-hero-float   { left: 4%; bottom: 3%; }
+  .ae-about-left   { left: 4%; bottom: 5%; }
+  .ae-cube-right   { right: 4%; top: 12%; }
+  .ae-client-right { right: 4%; bottom: 5%; }
+  .ae-brands-bot   { left: 4%; bottom: 3%; }
+  .ae-contact-right{ right: 4%; top: 10%; }
 }

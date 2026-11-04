@@ -14,7 +14,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css?v=3.1" />
+  <link rel="stylesheet" href="style.css?v=3.2" />
 
   <style>
     /* About Me Skills: Always keep boxes side by side (2 columns) on mobile just like PC */
@@ -130,6 +130,90 @@
     <div class="brutal-corner-cross bc-tr">+</div>
     <div class="brutal-corner-cross bc-bl">+</div>
     <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- After Effects Keyframes & Graph Editor Elements (Hero) -->
+    <div class="ae-decor ae-hero-left ae-float-1" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-amber">◆</span> SPEED GRAPH</span>
+          <span class="ae-hud-val">1200 px/s</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="aeHeroGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32"/>
+                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="12" x2="160" y2="12" stroke="rgba(103,232,249,0.12)" stroke-dasharray="2 3" stroke-width="1"/>
+            <line x1="0" y1="28" x2="160" y2="28" stroke="rgba(103,232,249,0.08)" stroke-dasharray="2 3" stroke-width="1"/>
+            <line x1="0" y1="44" x2="160" y2="44" stroke="rgba(103,232,249,0.2)" stroke-width="1"/>
+            <!-- Velocity Area -->
+            <path d="M 4 44 C 36 44, 52 8, 80 8 C 108 8, 124 44, 156 44 Z" fill="url(#aeHeroGrad)"/>
+            <!-- Velocity Curve -->
+            <path d="M 4 44 C 36 44, 52 8, 80 8 C 108 8, 124 44, 156 44" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+            <!-- Tangent handle at peak (AE Amber) -->
+            <line x1="54" y1="8" x2="106" y2="8" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="1 1"/>
+            <circle cx="54" cy="8" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <circle cx="106" cy="8" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <!-- Peak Hourglass Keyframe -->
+            <path d="M 77 4 L 83 4 C 81.5 6 81 7 80 8 C 81 9 81.5 10 83 12 L 77 12 C 78.5 10 79 9 80 8 C 79 7 78.5 6 77 4 Z" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>INFLUENCE: 85%</span>
+          <span class="ae-hud-val">EASE_IN_OUT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-hero-right ae-float-2" aria-hidden="true">
+      <div class="ae-strip-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-cyan">⧗</span> KEYFRAMES</span>
+          <span class="ae-hud-val">AE v24</span>
+        </div>
+        <div class="ae-strip-list">
+          <div class="ae-strip-row">
+            <span class="ae-strip-left">
+              <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#38bdf8"/></svg>
+              <span>Easy Ease</span>
+            </span>
+            <span class="ae-shortcut">F9</span>
+          </div>
+          <div class="ae-strip-row">
+            <span class="ae-strip-left">
+              <svg viewBox="0 0 16 16" width="12" height="12"><path d="M8 2 L14 8 L8 14 L2 8 Z" fill="#fbbf24"/></svg>
+              <span>Linear</span>
+            </span>
+            <span class="ae-shortcut">Ctrl+Click</span>
+          </div>
+          <div class="ae-strip-row">
+            <span class="ae-strip-left">
+              <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 3 L9 3 L9 13 L3 13 Z" fill="#f8fafc"/><line x1="13" y1="3" x2="13" y2="13" stroke="#f8fafc" stroke-width="2"/></svg>
+              <span>Hold</span>
+            </span>
+            <span class="ae-shortcut">C+A+H</span>
+          </div>
+          <div class="ae-strip-row">
+            <span class="ae-strip-left">
+              <svg viewBox="0 0 24 12" width="18" height="9"><line x1="2" y1="6" x2="22" y2="6" stroke="#fbbf24" stroke-width="1.2"/><circle cx="3" cy="6" r="1.8" fill="#fbbf24"/><circle cx="21" cy="6" r="1.8" fill="#fbbf24"/><path d="M12 2 L15 6 L12 10 L9 6 Z" fill="#38bdf8"/></svg>
+              <span>Bezier</span>
+            </span>
+            <span class="ae-shortcut">Tangent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-hero-float ae-float-3" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#38bdf8"/></svg>
+        <span>EASE // 75.0%</span>
+      </div>
+    </div>
+
 
     <!-- Animated grid background -->
     <div class="hero-grid"></div>
@@ -283,6 +367,45 @@
     <div class="brutal-corner-cross bc-bl">+</div>
     <div class="brutal-corner-cross bc-br">+</div>
 
+    <!-- After Effects Decor (About Section) -->
+    <div class="ae-decor ae-about-right ae-float-1" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-cyan">⧗</span> VALUE GRAPH</span>
+          <span class="ae-hud-val">100%</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <line x1="0" y1="8" x2="160" y2="8" stroke="rgba(103,232,249,0.1)" stroke-dasharray="2 3" stroke-width="1"/>
+            <line x1="0" y1="24" x2="160" y2="24" stroke="rgba(103,232,249,0.08)" stroke-dasharray="2 3" stroke-width="1"/>
+            <line x1="0" y1="40" x2="160" y2="40" stroke="rgba(103,232,249,0.18)" stroke-width="1"/>
+            <!-- S-Curve Bezier Ease-In-Out -->
+            <path d="M 6 40 C 50 40, 60 8, 154 8" fill="none" stroke="#67e8f9" stroke-width="2"/>
+            <!-- Tangents -->
+            <line x1="6" y1="40" x2="42" y2="40" stroke="#fbbf24" stroke-width="1.2"/>
+            <circle cx="42" cy="40" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <line x1="154" y1="8" x2="118" y2="8" stroke="#fbbf24" stroke-width="1.2"/>
+            <circle cx="118" cy="8" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <!-- Start/End Keyframes -->
+            <path d="M 4 37 L 8 40 L 4 43 L 0 40 Z" fill="#fbbf24"/>
+            <path d="M 154 5 L 158 8 L 154 11 L 150 8 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>CUBIC_BEZIER</span>
+          <span class="ae-hud-val">0% ➔ 100%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-about-left ae-float-4" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 28 14" width="22" height="11"><line x1="2" y1="7" x2="26" y2="7" stroke="#fbbf24" stroke-width="1.2"/><circle cx="3" cy="7" r="2" fill="#fbbf24"/><circle cx="25" cy="7" r="2" fill="#fbbf24"/><path d="M14 3 L18 7 L14 11 L10 7 Z" fill="#38bdf8"/></svg>
+        <span>BEZIER TANGENT</span>
+      </div>
+    </div>
+
+
     <!-- Brutalist Boarding Pass Decal (Image 8) -->
     <div class="brutal-boarding-pass" style="top: 8%; right: 4%;">
       <div class="bbp-header">
@@ -422,6 +545,43 @@
     <div class="brutal-corner-cross bc-bl">+</div>
     <div class="brutal-corner-cross bc-br">+</div>
 
+    <!-- After Effects Decor (3D Matrix Section) -->
+    <div class="ae-decor ae-cube-left ae-float-2" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-amber">◆</span> 3D MOTION PATH</span>
+          <span class="ae-hud-val">XYZ</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <!-- Trajectory Path with Velocity Dots -->
+            <path d="M 8 38 C 45 38, 55 12, 110 16 C 135 18, 142 34, 154 36" fill="none" stroke="#38bdf8" stroke-width="1.4" stroke-dasharray="3 3"/>
+            <!-- Keyframe 1 -->
+            <path d="M 8 34 L 12 38 L 8 42 L 4 38 Z" fill="#fbbf24"/>
+            <!-- Keyframe 2 (Middle Vertex) -->
+            <path d="M 110 12 L 114 16 L 110 20 L 106 16 Z" fill="#67e8f9"/>
+            <line x1="94" y1="14" x2="126" y2="18" stroke="#fbbf24" stroke-width="1"/>
+            <circle cx="94" cy="14" r="1.8" fill="#fbbf24"/>
+            <circle cx="126" cy="18" r="1.8" fill="#fbbf24"/>
+            <!-- Keyframe 3 -->
+            <path d="M 154 32 L 158 36 L 154 40 L 150 36 Z" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>SPATIAL: BEZIER</span>
+          <span class="ae-hud-val">CAM_POS: 3D</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-cube-right ae-float-3" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#38bdf8"/></svg>
+        <span>EASY EASE // TENSION: 0.0</span>
+      </div>
+    </div>
+
+
     <!-- Brutalist Retro Window Decal (Image 7) -->
     <div class="brutal-window-card" style="bottom: 8%; left: 3%;">
       <div class="bwc-bar">
@@ -540,6 +700,43 @@
     <!-- Brutalist technical signs -->
     <div class="client-flank-sign c-sign-left">&#9679; CLIENT_ARCHIVE // 9:16</div>
     <div class="client-flank-sign c-sign-right">RAW_RENDER_SEQ_009 // 4K &#9679;</div>
+
+    <!-- After Effects Decor (Client Work Section) -->
+    <div class="ae-decor ae-client-left ae-float-1" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-cyan">⧗</span> SPEED RAMP</span>
+          <span class="ae-hud-val">2400 px/s</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <line x1="0" y1="12" x2="160" y2="12" stroke="rgba(103,232,249,0.1)" stroke-dasharray="2 3"/>
+            <line x1="0" y1="42" x2="160" y2="42" stroke="rgba(103,232,249,0.18)"/>
+            <!-- Steep Ramp Down Curve -->
+            <path d="M 6 12 C 40 12, 65 42, 154 42" fill="none" stroke="#38bdf8" stroke-width="2"/>
+            <!-- Tangent Handles -->
+            <line x1="6" y1="12" x2="48" y2="12" stroke="#fbbf24" stroke-width="1.2"/>
+            <circle cx="48" cy="12" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <line x1="154" y1="42" x2="105" y2="42" stroke="#fbbf24" stroke-width="1.2"/>
+            <circle cx="105" cy="42" r="2.2" fill="#fbbf24" class="ae-pulse-dot"/>
+            <!-- End Hourglass -->
+            <path d="M 3 8 L 9 8 C 7.5 10 7 11 6 12 C 7 13 7.5 14 9 16 L 3 16 C 4.5 14 5 13 6 12 C 5 11 4.5 10 3 8 Z" fill="#fbbf24"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>RAMP: 800% ➔ 100%</span>
+          <span class="ae-hud-val">SLOW-MO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-client-right ae-float-4" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#fbbf24"/></svg>
+        <span>EASE OUT // 66.6%</span>
+      </div>
+    </div>
+
 
     <!-- Brutalist Retro Window Decal (Image 7) -->
     <div class="brutal-window-card" style="top: 1.5rem; left: 3rem;">
@@ -782,6 +979,39 @@
     <div class="brutal-corner-cross bc-bl">+</div>
     <div class="brutal-corner-cross bc-br">+</div>
 
+    <!-- After Effects Decor (Brands Section) -->
+    <div class="ae-decor ae-brands-top ae-float-2" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 28 14" width="22" height="11"><line x1="2" y1="7" x2="26" y2="7" stroke="#fbbf24" stroke-width="1.2"/><circle cx="3" cy="7" r="2" fill="#fbbf24"/><circle cx="25" cy="7" r="2" fill="#fbbf24"/><path d="M14 3 L18 7 L14 11 L10 7 Z" fill="#38bdf8"/></svg>
+        <span>CONTINUOUS BEZIER</span>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-brands-bot ae-float-3" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-amber">◆</span> VELOCITY PEAK</span>
+          <span class="ae-hud-val">1850 px/s</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <line x1="0" y1="42" x2="160" y2="42" stroke="rgba(103,232,249,0.18)"/>
+            <!-- Spike Curve -->
+            <path d="M 6 42 C 60 42, 70 8, 80 8 C 90 8, 100 42, 154 42" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+            <path d="M 80 4 L 84 8 L 80 12 L 76 8 Z" fill="#fbbf24"/>
+            <line x1="62" y1="8" x2="98" y2="8" stroke="#38bdf8" stroke-width="1"/>
+            <circle cx="62" cy="8" r="1.8" fill="#38bdf8"/>
+            <circle cx="98" cy="8" r="1.8" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>INFLUENCE: 90%</span>
+          <span class="ae-hud-val">SNAP_CUT</span>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Brutalist Ticket Decal (Image 6) -->
     <div class="brutal-ticket-tag" style="top: 15%; left: 3%;">
       <span class="btt-notch left"></span>
@@ -946,6 +1176,38 @@
 
   <!-- ========== SERVICES ========== -->
   <section class="services" id="services">
+
+    <!-- After Effects Decor (Services Section) -->
+    <div class="ae-decor ae-svc-left ae-float-1" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#38bdf8"/></svg>
+        <span>EASING ENGINE // 60FPS</span>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-svc-right ae-float-4" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-cyan">⧗</span> MOTION CURVE</span>
+          <span class="ae-hud-val">f(t)</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <line x1="0" y1="24" x2="160" y2="24" stroke="rgba(103,232,249,0.08)" stroke-dasharray="2 3"/>
+            <line x1="0" y1="42" x2="160" y2="42" stroke="rgba(103,232,249,0.18)"/>
+            <!-- Dual Waveform/Motion Curve -->
+            <path d="M 6 42 C 30 42, 45 10, 75 10 C 105 10, 120 42, 154 42" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
+            <path d="M 6 42 C 50 42, 80 20, 154 20" fill="none" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="2 2"/>
+            <path d="M 75 6 L 79 10 L 75 14 L 71 10 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>INTERPOLATION</span>
+          <span class="ae-hud-val">DYNAMIC</span>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="sec-header reveal-up">
         <div class="sec-label">What I Do</div>
@@ -993,6 +1255,39 @@
     <div class="brutal-corner-cross bc-tr">+</div>
     <div class="brutal-corner-cross bc-bl">+</div>
     <div class="brutal-corner-cross bc-br">+</div>
+
+    <!-- After Effects Decor (Contact Section) -->
+    <div class="ae-decor ae-contact-right ae-float-2" aria-hidden="true">
+      <div class="ae-kf-chip">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M3 2 L13 2 C10.5 5.5 10 7 8 8 C10 9 10.5 10.5 13 14 L3 14 C5.5 10.5 6 9 8 8 C6 7 5.5 5.5 3 2 Z" fill="#fbbf24"/></svg>
+        <span>RENDER QUEUE // ALL KEYFRAMES RESOLVED</span>
+      </div>
+    </div>
+
+    <div class="ae-decor ae-contact-left ae-float-3" aria-hidden="true">
+      <div class="ae-hud-box">
+        <div class="ae-hud-header">
+          <span class="ae-hud-tag"><span class="ae-kf-mini ae-mini-amber">◆</span> OUTPUT MODULE</span>
+          <span class="ae-hud-val">COMP_01</span>
+        </div>
+        <div class="ae-graph-svg-wrap">
+          <svg viewBox="0 0 160 48" class="ae-graph-svg" preserveAspectRatio="none">
+            <line x1="0" y1="42" x2="160" y2="42" stroke="rgba(103,232,249,0.18)"/>
+            <!-- Flat Out Hold Line after Ease -->
+            <path d="M 6 42 C 40 42, 60 16, 100 16 L 154 16" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+            <path d="M 100 12 L 104 16 L 100 20 L 96 16 Z" fill="#38bdf8"/>
+            <!-- Hold Keyframe at end -->
+            <path d="M 148 11 L 152 11 L 152 21 L 148 21 Z" fill="#fbbf24"/>
+            <line x1="154" y1="11" x2="154" y2="21" stroke="#fbbf24" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="ae-hud-footer">
+          <span>HOLD KEYFRAME</span>
+          <span class="ae-hud-val">FINAL_FRAME</span>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Brutalist Optical Starburst -->
     <div class="brutal-starburst" style="top: 15%; right: 5%;"></div>
